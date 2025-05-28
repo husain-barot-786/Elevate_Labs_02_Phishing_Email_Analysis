@@ -1,0 +1,83 @@
+Internship Task 2: Phishing Report – Email Sample Analysis (sample-108.eml)
+----------------------------------------------------------------------------
+
+Task Title    : Phishing Email Analysis
+Tools Used    : Email header, Mousepad, Browser
+Platform Used : Kali Linux (Terminal)
+
+------------------
+1. Sender Analysis
+------------------
+
+From: Williams Sankoh <Williams_Sankoh@info.org>
+
+Reply-To: <williams.sankoh@yandex.com>
+
+Red Flag: Mismatch between sender domain (info.org) and reply-to domain (yandex.com) – often used to redirect replies away from legitimate servers.
+
+----------------------------------
+2. Header Analysis (via MXToolbox)
+----------------------------------
+
+Check                | Result
+---------------------|-------------------------
+DMARC                | No DMARC record found
+SPF Authentication   | SPF passed
+SPF Alignment        | Failed
+DKIM Authentication  | Failed
+DKIM Alignment       | Failed
+ARC Authentication   | Passed
+
+Red Flags:
+- DMARC missing – Cannot validate domain authenticity.
+- SPF and DKIM alignment failed – Email may be spoofed.
+- DKIM failed – Message may be altered or unsigned.
+
+----------------------
+3. Email Body Analysis
+----------------------
+
+Tone: Polite but suspicious.
+Language: No grammar/spelling errors.
+Urgency: Indirect. Suggests immediate investment.
+Type of Attack: Business Proposal Scam / Social Engineering
+
+Red Flags:
+- Generic greeting: “Dear Sir / Madam”
+- Outlandish business claim: $6.8 million investment
+- Requests personal contact information
+- Asks to meet in person for financial dealings
+- Uses vague sender identity and unverifiable background
+
+-----------------------
+4. Links or Attachments
+-----------------------
+
+Links: None found
+Attachments: None
+
+Note: Absence of links does not eliminate phishing risk.
+
+----------------
+5. Final Verdict
+----------------
+
+This email displays multiple phishing indicators:
+
+- Sender and reply-to mismatch
+- Failed authentication checks (SPF alignment, DKIM, DMARC)
+- Social engineering techniques
+- Request for confidential contact and financial discussion
+
+Classification: Phishing Email (Business Scam)
+
+---------
+Learnings
+---------
+
+This case demonstrates the importance of:
+- Email header analysis
+- Authentication mechanisms like SPF, DKIM, and DMARC
+- Identifying social engineering content
+
+Best practice: Never trust emails that request money, investment, or personal info, come from mismatched or non-corporate domains, or seem too good to be true.
